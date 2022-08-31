@@ -1,6 +1,6 @@
 # Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+A less effective Anki App built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize their jAnki app! 
 
 ---
 
@@ -11,12 +11,14 @@ A Simple ToDo App is built using the MVC Architecture, we have also implemented 
 # Objectives
 
 - It's a beginner level app created to understand how MVC concept and logins are added
+- Adding in a pomodoro option to provide an in app timer
+- Provide a single jAnki card at a time that is pulled at random (array)
 
 ---
 
 # Who is this for? 
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+- It's for anyone who is tired of the perfect algorithm that Anki provides.
 
 ---
 
