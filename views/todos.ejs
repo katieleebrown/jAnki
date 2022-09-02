@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jAnki</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -21,7 +21,10 @@
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <label for="cardFront">Front:</label>
+        <input type="text" placeholder="Enter front of card" name='cardFront'>
+        <label for="cardFront">Back:</label>
+        <input type="text" placeholder="Enter back of card" name='cardBack'>
         <input type="submit">
     </form>
 

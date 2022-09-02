@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
 const TodoSchema = new mongoose.Schema({
-  todo: {
+  cardFront: {
     type: String,
     required: true,
   },
-  completed: {
-    type: Boolean,
+  cardBack: {
+    type: String,
     required: true,
   },
   userId: {
