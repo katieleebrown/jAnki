@@ -4,20 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jAnki</title>
+
+     <!-- Stylesheets -->
+     <link rel="stylesheet" href="css/style.css">
+
+     <!-- Fonts & Icons -->
+     <link href="https://fonts.googleapis.com/css2?family=Harmattan:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
+    <nav>
+        <img src="images/jAnki-Logo.png" alt="jAnki">
+        <div class="buttonHolder">
+            <a href="/login" class="button">Login</a>
+            <a href="/signup" class="button">Signup</a>
+        </div>
+    </nav>
+
+    <main>
+        <h2>Welcome to jAnki!</h2>
+
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <form action="/signup" method="POST">
+            <div class="formGroup">
+                <label for="userName">User Name:</label>
+                <input type="text" name="userName" placeholder="User Name">
+            </div>
+            <div class="formGroup">
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="Email">
+            </div>
+            <div class="formGroup">
+                <label for="password">Password:</label>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <div class="formGroup">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password">
+            </div>
+            <input type="submit" class="button">
+        </form>
+
+    </main>
 </body>
 </html>
