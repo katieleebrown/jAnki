@@ -14,6 +14,7 @@ Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
+//delete a jAnkie card
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
     try{
@@ -32,6 +33,7 @@ async function deleteTodo(){
     }
 }
 
+//mark off a jAnki card if you have it memorized
 async function markComplete(){
     const todoId = this.parentNode.dataset.id
     try{
@@ -50,6 +52,7 @@ async function markComplete(){
     }
 }
 
+//add a marked off jAnki card back to the deck if you didn't quite get it memorized
 async function markIncomplete(){
     const todoId = this.parentNode.dataset.id
     try{

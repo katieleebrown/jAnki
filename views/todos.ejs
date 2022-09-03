@@ -8,22 +8,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1>My jAnki Card Deck</h1>
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.cardFront %></br><%= el.cardBack %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2><%= user.userName %> has <%= left %> cards to review!</h2>
+
+    <h3>Create a card to add to the jAnki deck!</h3>
 
     <form action="/todos/createTodo" method='POST'>
         <label for="cardFront">Front:</label>
         <input type="text" placeholder="Enter front of card" name='cardFront'>
-        <label for="cardFront">Back:</label>
+        <label for="cardBack">Back:</label>
         <input type="text" placeholder="Enter back of card" name='cardBack'>
         <input type="submit">
     </form>
