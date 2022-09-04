@@ -24,9 +24,9 @@
 
     <form action="/todos/createTodo" method='POST'>
         <label for="cardFront">Front:</label>
-        <input type="text" placeholder="Enter front of card" name='cardFront'>
-        <label for="cardBack">Back:</label>
-        <input type="text" placeholder="Enter back of card" name='cardBack'>
+        <input type="text" placeholder="Enter front of card" name='cardFront' id="front">
+        <label for="cardBack" id="hideBack">Back:</label>
+        <input type="text" placeholder="Enter back of card" name='cardBack' id="back" class="hidden">
         <input type="submit">
     </form>
 

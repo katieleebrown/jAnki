@@ -1,6 +1,14 @@
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
+const backOfCard = document.querySelector('#back')
+
+document.querySelector('#hideBack').addEventListener('click', hideBack)
+
+function hideBack(){
+	front.classList.add('hidden')
+	back.classList.toggle('hidden')
+}
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
