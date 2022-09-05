@@ -89,14 +89,14 @@
             <form action="/todos/createTodo" method='POST'>
                 <div class="formGroup">
                     <label for="cardFront">Front:</label>
-                    <input type="text" placeholder="Enter front of card" name='cardFront' id="front">
+                    <input type="text" placeholder="Enter front of card" name='cardFront' id="front" required>
                 </div>
                 <div class="formGroup">
                     <label for="cardBack" id="hideBack">Back:</label>
-                    <input type="text" placeholder="Enter back of card" name='cardBack' id="back">
+                    <input type="text" placeholder="Enter back of card" name='cardBack' id="back" required>
                 </div>
 
-                <input type="submit" class="button">
+                <input type="submit" class="button" value="Add Card">
             </form>
         </section>
     </main>
