@@ -1,0 +1,82 @@
+/* CSS Specifically for the signed in card display page */
+
+/* Review Cards Section */
+h1 {
+    text-align: center;
+    margin-top: 4%;
+    font-size: 2rem;
+}
+
+#cardReview {
+    width: 100%;
+}
+
+.card {
+    width: 80%;
+    max-width: 500px;
+    min-height: 100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.cardData {
+    width: 100%;
+    background-color: #d9d9d9;
+    border-radius: 3%;
+    margin: 2% auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardInfo {
+    background-color: white;
+    width: 95%;
+    height: auto;
+    min-height: 50px;
+    margin: 2% auto 0;
+    border-radius: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+#showCardBack {
+    margin-bottom: 1%;
+}
+
+.hoverState:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* Add a Card Section */
+#addACard {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #003946;
+}
+
+#addACard>h3 {
+    margin: 2%;
+    font-size: 1.75rem;
+    margin-top: 4%;
+}
+
+#addACard>form {
+    width: 80%;
+    padding-right: 2%;
+}
+
+/* Hidden Class - Needs to stay at bottom of page */
+.hidden {
+    display: none;
+}

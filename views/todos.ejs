@@ -1,37 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jAnki</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cards.css">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Harmattan:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>My jAnki Card Deck</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.cardFront %></br><%= el.cardBack %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+    <nav>
+        <img src="images/jAnki-Logo.png" alt="jAnki">
+        <div class="buttonHolder">
+            <a href="/logout" class="button">Logout</a>
+        </div>
+    </nav>
 
-    <h2><%= user.userName %> has <%= left %> cards to review!</h2>
+    <main>
+        <section id="cardReview">
+            <h1>
+                <%= user.userName %>'s jAnki Card Deck
+            </h1>
+            <div class="card">
+                <% todos.forEach( el=> { %>
+                    <div class='cardData' data-id='<%=el._id%>'>
+                        <p data-id='<%=el._id%>' class='<%= el.completed === true ? ' completed' : 'not' %> cardInfo
+                            cardFront'>
+                            <%=el.cardFront %>
+                        </p>
+                        <p data-id='<%=el._id%>'
+                            class="<%= el.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
+                            <%= el.cardBack %>
+                        </p>
+                        <a data-id='<%=el._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                        <span class='del hoverState'> Delete </span>
+                    </div>
+                    <% }) %>
+            </div>
 
-    <h3>Create a card to add to the jAnki deck!</h3>
+            <h2>
+                You have <%= left %> cards to review!
+            </h2>
+        </section>
 
-    <form action="/todos/createTodo" method='POST'>
-        <label for="cardFront">Front:</label>
-        <input type="text" placeholder="Enter front of card" name='cardFront' id="front">
-        <label for="cardBack" id="hideBack">Back:</label>
-        <input type="text" placeholder="Enter back of card" name='cardBack' id="back" class="hidden">
-        <input type="submit">
-    </form>
+        <section id="addACard">
+            <h3>Create a card to add to your jAnki deck!</h3>
 
-    <a href="/logout">Logout</a>
+            <form action="/todos/createTodo" method='POST'>
+                <div class="formGroup">
+                    <label for="cardFront">Front:</label>
+                    <input type="text" placeholder="Enter front of card" name='cardFront' id="front">
+                </div>
+                <div class="formGroup">
+                    <label for="cardBack" id="hideBack">Back:</label>
+                    <input type="text" placeholder="Enter back of card" name='cardBack' id="back">
+                </div>
+
+                <input type="submit" class="button">
+            </form>
+        </section>
+    </main>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
