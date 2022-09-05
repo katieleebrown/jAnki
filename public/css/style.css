@@ -98,3 +98,16 @@ form .button {
     margin: auto;
     border-radius: 3%;
 }
+
+.timer {
+    height:10vh;
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer h1 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+}
