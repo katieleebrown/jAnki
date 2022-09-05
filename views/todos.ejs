@@ -25,11 +25,20 @@
 
     <main>
         <section id="cardReview">
+
             <h1>
                 <%= user.userName %>'s jAnki Card Deck
             </h1>
+
+            <div>
+                <button class="all button">Show All Cards</button>
+                <button class="random button">Random</button>
+            </div>
+
             <div class="card">
+
                 <% todos.forEach( el=> { %>
+
                     <div class='cardData' data-id='<%=el._id%>'>
                         <p data-id='<%=el._id%>' class='<%= el.completed === true ? ' completed' : 'not' %> cardInfo
                             cardFront'>
@@ -43,6 +52,12 @@
                         <span class='del hoverState'> Delete </span>
                     </div>
                     <% }) %>
+
+            </div>
+
+            <div>
+                <button class="previous button">Previous</button>
+                <button class="next button">Next</button>
             </div>
 
             <h2>

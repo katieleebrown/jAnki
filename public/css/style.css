@@ -43,6 +43,7 @@ a {
     margin: 2%;
     background-color: #003946;
     border: 2px solid white;
+    color: white;
 }
 
 .button:hover {
