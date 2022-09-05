@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jAnki</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cards.css">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Harmattan:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <img src="images/jAnki-Logo.png" alt="jAnki">
+        <div class="buttonHolder">
+            <a href="/logout" class="button">Logout</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="cardReview">
+
+            <h1>
+                <%= user.userName %>'s jAnki Card Deck
+            </h1>
+
+            <div>
+                <button id="all" class="all button">Show All Cards</button>
+                <button id="showRandom" class="showRandom button">Random</button>
+            </div>
+
+            <div id="card" class="card">
+
+                <% todos.forEach( el=> { %>
+
+                    <div class='cardData' data-id='<%=el._id%>'>
+                        <p data-id='<%=el._id%>' class='<%= el.completed === true ? ' completed' : 'not' %> cardInfo
+                            cardFront'>
+                            <%=el.cardFront %>
+                        </p>
+                        <p data-id='<%=el._id%>'
+                            class="<%= el.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
+                            <%= el.cardBack %>
+                        </p>
+                        <a data-id='<%=el._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                        <span class='del hoverState'> Delete </span>
+                    </div>
+                <% }) %>
+
+            </div>
+
+            <div id="random" class="card hidden">
+
+                <% var randoCard = todos[Math.floor(Math.random()*todos.length)] %>
+
+                <div class='cardData' data-id='<%=randoCard._id%>'>
+                    <p data-id='<%=randoCard._id%>' class='<%= randoCard.completed === true ? ' completed' : 'not' %> cardInfo
+                        cardFront'>
+                        <%=randoCard.cardFront %>
+                    </p>
+                    <p data-id='<%=randoCard._id%>'
+                        class="<%= randoCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
+                        <%= randoCard.cardBack %>
+                    </p>
+                    <a data-id='<%=randoCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                    <span class='del hoverState'> Delete </span>
+                </div>
+
+                <!-- <% todos.forEach( el=> { %>
+                    <div class='cardData' data-id='<%=el._id%>'>
+                        <p data-id='<%=el._id%>' class='cardInfo cardFront'>
+                            <%=el.cardFront %>
+                        </p>
+                        <p data-id='<%=el._id%>'
+                            class="cardInfo cardBack hidden">
+                            <%= el.cardBack %>
+                        </p>
+                        <a data-id='<%=el._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                        <span class='del hoverState'> Delete </span>
+                    </div>
+                <% }) %> -->
+
+            </div>
+
+            <div>
+                <button class="previous button">Previous</button>
+                <button class="next button">Next</button>
+            </div>
+
+            <h2>
+                You have <%= left %> cards to review!
+            </h2>
+        </section>
+
+        <section id="addACard">
+            <h3>Create a card to add to your jAnki deck!</h3>
+
+            <form action="/todos/createTodo" method='POST'>
+                <div class="formGroup">
+                    <label for="cardFront">Front:</label>
+                    <input type="text" placeholder="Enter front of card" name='cardFront' id="front" required>
+                </div>
+                <div class="formGroup">
+                    <label for="cardBack" id="hideBack">Back:</label>
+                    <input type="text" placeholder="Enter back of card" name='cardBack' id="back" required>
+                </div>
+
+                <input type="submit" class="button" value="Add Card">
+            </form>
+        </section>
+
+        <!-- <section>
+            <hr>
+            <h2>Trying to Display One Random Card</h2>
+
+            <% const randomCard = todos[Math.floor(Math.random()*todos.length)] %>
+
+            <div class='cardData' data-id='<%=randomCard._id%>'>
+                <p data-id='<%=randomCard._id%>' class='<%= randomCard.completed === true ? ' completed' : 'not' %> cardInfo
+                    cardFront'>
+                    <%=randomCard.cardFront %>
+                </p>
+                <p data-id='<%=randomCard._id%>'
+                    class="<%= randomCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
+                    <%= randomCard.cardBack %>
+                </p>
+                <a data-id='<%=randomCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                <span class='del hoverState'> Delete </span>
+            </div>
+
+        </section> -->
+
+
+
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
