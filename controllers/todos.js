@@ -11,6 +11,16 @@ module.exports = {
             console.log(err)
         }
     },
+    getRandom: async (req,res)=>{
+        console.log(req.user)
+        try{
+            const randoItem = await Math.random() * Todo.length
+            const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
+            res.render('todos.ejs', {todos: randoItem, left: itemsLeft, user: req.user})
+        }catch(err){
+            console.log(err)
+        }
+    },
     createTodo: async (req, res)=>{
         try{
             await Todo.create({cardFront: req.body.cardFront, cardBack: req.body.cardBack, completed: false, userId: req.user.id})
@@ -20,28 +30,28 @@ module.exports = {
             console.log(err)
         }
     },
-    // markComplete: async (req, res)=>{
-    //     try{
-    //         await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-    //             completed: true
-    //         })
-    //         console.log('Marked Complete')
-    //         res.json('Marked Complete')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
-    // markIncomplete: async (req, res)=>{
-    //     try{
-    //         await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-    //             completed: false
-    //         })
-    //         console.log('Marked Incomplete')
-    //         res.json('Marked Incomplete')
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
+    markComplete: async (req, res)=>{
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                completed: true
+            })
+            console.log('Marked Complete')
+            res.json('Marked Complete')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    markIncomplete: async (req, res)=>{
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                completed: false
+            })
+            console.log('Marked Incomplete')
+            res.json('Marked Incomplete')
+        }catch(err){
+            console.log(err)
+        }
+    },
     deleteTodo: async (req, res)=>{
         console.log(req.body.todoIdFromJSFile)
         try{

@@ -38,7 +38,6 @@
             <div id="card" class="card">
 
                 <% todos.forEach( el=> { %>
-
                     <div class='cardData' data-id='<%=el._id%>'>
                         <p data-id='<%=el._id%>' class='<%= el.completed === true ? ' completed' : 'not' %> cardInfo
                             cardFront'>
@@ -57,7 +56,22 @@
 
             <div id="random" class="card hidden">
 
-                <% todos.forEach( el=> { %>
+                <% var randoCard = todos[Math.floor(Math.random()*todos.length)] %>
+
+                <div class='cardData' data-id='<%=randoCard._id%>'>
+                    <p data-id='<%=randoCard._id%>' class='<%= randoCard.completed === true ? ' completed' : 'not' %> cardInfo
+                        cardFront'>
+                        <%=randoCard.cardFront %>
+                    </p>
+                    <p data-id='<%=randoCard._id%>'
+                        class="<%= randoCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
+                        <%= randoCard.cardBack %>
+                    </p>
+                    <a data-id='<%=randoCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                    <span class='del hoverState'> Delete </span>
+                </div>
+
+                <!-- <% todos.forEach( el=> { %>
                     <div class='cardData' data-id='<%=el._id%>'>
                         <p data-id='<%=el._id%>' class='cardInfo cardFront'>
                             <%=el.cardFront %>
@@ -69,7 +83,7 @@
                         <a data-id='<%=el._id%>' id="showCardBack" class="button displayButton">Show Back</a>
                         <span class='del hoverState'> Delete </span>
                     </div>
-                <% }) %>
+                <% }) %> -->
 
             </div>
 
@@ -99,6 +113,27 @@
                 <input type="submit" class="button" value="Add Card">
             </form>
         </section>
+
+        <!-- <section>
+            <hr>
+            <h2>Trying to Display One Random Card</h2>
+            <% const randomCard = todos[Math.floor(Math.random()*todos.length)] %>
+            <div class='cardData' data-id='<%=randomCard._id%>'>
+                <p data-id='<%=randomCard._id%>' class='<%= randomCard.completed === true ? ' completed' : 'not' %> cardInfo
+                    cardFront'>
+                    <%=randomCard.cardFront %>
+                </p>
+                <p data-id='<%=randomCard._id%>'
+                    class="<%= randomCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
+                    <%= randomCard.cardBack %>
+                </p>
+                <a data-id='<%=randomCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                <span class='del hoverState'> Delete </span>
+            </div>
+        </section> -->
+
+
+
     </main>
 
     <script src="js/main.js"></script>
