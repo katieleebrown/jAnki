@@ -31,11 +31,11 @@
             </h1>
 
             <div>
-                <button class="all button">Show All Cards</button>
-                <button class="random button">Random</button>
+                <button id="all" class="all button">Show All Cards</button>
+                <button id="showRandom" class="showRandom button">Random</button>
             </div>
 
-            <div class="card">
+            <div id="card" class="card">
 
                 <% todos.forEach( el=> { %>
 
@@ -51,7 +51,25 @@
                         <a data-id='<%=el._id%>' id="showCardBack" class="button displayButton">Show Back</a>
                         <span class='del hoverState'> Delete </span>
                     </div>
-                    <% }) %>
+                <% }) %>
+
+            </div>
+
+            <div id="random" class="card hidden">
+
+                <% todos.forEach( el=> { %>
+                    <div class='cardData' data-id='<%=el._id%>'>
+                        <p data-id='<%=el._id%>' class='cardInfo cardFront'>
+                            <%=el.cardFront %>
+                        </p>
+                        <p data-id='<%=el._id%>'
+                            class="cardInfo cardBack hidden">
+                            <%= el.cardBack %>
+                        </p>
+                        <a data-id='<%=el._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                        <span class='del hoverState'> Delete </span>
+                    </div>
+                <% }) %>
 
             </div>
 
