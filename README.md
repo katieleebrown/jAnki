@@ -1,46 +1,24 @@
-# Introduction
+# jAnki
+A less effective Anki App built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize their jAnki app! If you are tired of the perfect algorithm that Anki provides, please check out jAnki!
 
-A less effective Anki App built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize their jAnki app! 
+**Link to project:** https://janki-flashcards.netlify.app/
 
----
+![alt tag](/public/images/all-cards.png)
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+## How It's Made:
 
----
+**Tech used:** HTML, CSS, JavaScript
 
-# Objectives
+**Dependencies used:** bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
 
-- It's a beginner level app created to understand how MVC concept and logins are added
-- Adding in a pomodoro option to provide an in app timer
-- Provide a single jAnki card at a time that is pulled at random (array)
+In this app we have add the options to show all cards in your deck or shuffle through a random card at a time. There is a timer that provides a bit of pressure to your card reviewing. There is also the option to add cards as needed.
 
----
+## Optimizations
 
-# Who is this for? 
+- Currently we are working on correcting the code so it does not break when you remove all cards from a the deck. 
+- The timer will have more functionality added, a button to start and stop, and the ability to change times. 
+- We'd like to add the option of adding several decks instead of one main deck. 
 
-- It's for anyone who is tired of the perfect algorithm that Anki provides.
+## Lessons Learned:
 
----
-
-# Packages/Dependencies used 
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install` 
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
-
-
+I think the greatest challenge in this team build has been figuring out how to get the randomization working, but everyone on the team stepped up and helped make that happen in little chunks. I hope you enjoy our jAnki app, stay tuned for future improvements!

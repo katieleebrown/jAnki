@@ -62,6 +62,10 @@ main {
     text-align: center;
 }
 
+#cardReview h1 {
+    margin: unset;
+}
+
 /* Form */
 form {
     width: 90%;
@@ -110,4 +114,6 @@ form .button {
 .timer h1 {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 30px;
+    margin: unset;
 }
+
