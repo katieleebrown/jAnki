@@ -30,9 +30,9 @@ function showRandom() {
 }
 
 function showAll() {
-
-    random.classList.add('hidden')
-    card.classList.toggle('hidden')
+    document.querySelectorAll('.cardData').forEach(cardBlock => {
+        cardBlock.classList.remove('hidden')
+    })
 
 }
 
