@@ -11,12 +11,12 @@ A less effective Anki App built using the MVC Architecture, we have also impleme
 
 **Dependencies used:** bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
 
-In this app we have add the options to show all cards in your deck or shuffle through a random card at a time. There is a timer that provides a bit of pressure to your card reviewing. There is also the option to add cards as needed.
+In this app we have add the options to show all cards in your deck or shuffle through a random card at a time. There is also the option to add cards as needed.
 
 ## Optimizations
 
 - Currently we are working on correcting the code so it does not break when you remove all cards from a the deck. 
-- The timer will have more functionality added, a button to start and stop, and the ability to change times. 
+- There will be a timer that provides a bit of pressure to your card reviewing.The timer will have a button to start and stop, and the ability to change times. 
 - We'd like to add the option of adding several decks instead of one main deck. 
 
 ## Lessons Learned:
