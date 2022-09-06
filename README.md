@@ -3,7 +3,7 @@ A less effective Anki App built using the MVC Architecture, we have also impleme
 
 **Link to project:** (https://janki-web-app.herokuapp.com/)
 
-![alt tag](/public/images/all-cards.png)
+![alt tag](/public/images/allCards.png)
 
 ## How It's Made:
 
