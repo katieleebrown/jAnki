@@ -1,4 +1,7 @@
 /* CSS Specifically for the signed in card display page */
+body {
+    font-family: 'Harmattan', sans-serif;
+}
 
 /* Review Cards Section */
 h1 {

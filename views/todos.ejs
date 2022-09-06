@@ -54,34 +54,13 @@
                             class="<%= el.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
                             <%= el.cardBack %>
                         </p>
-                        <a data-id='<%=el._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                        <a data-id='<%=el._id%>' id="showCardBack-<%=el._id%>" class="button displayButton">Show
+                            Back</a>
                         <span class='del hoverState'> Delete </span>
                     </div>
                     <% }) %>
 
             </div>
-
-            <!-- <div id="random" class="card hidden">
-                <% let randoCard=todos[Math.floor(Math.random()*todos.length)] %>
-
-                    <div class='cardData' data-id='<%=randoCard._id%>'>
-                        <p id="randomCardFront" data-id='<%=randoCard._id%>' class='cardInfo
-                            cardFront'>
-                            <%=randoCard.cardFront %>
-                        </p>
-                        <p id="rnadomCardBack" data-id='<%=randoCard._id%>'
-                            class="<%= randoCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
-                            <%= randoCard.cardBack %>
-                        </p>
-                        <a data-id='<%=randoCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
-                        <span class='del hoverState'> Delete </span>
-                    </div>
-            </div> -->
-
-            <!-- <div>
-                <button class="previous button">Previous</button>
-                <button class="next button">Next</button>
-            </div> -->
 
             <h2>
                 You have <%= left %> cards to review!
@@ -104,8 +83,22 @@
                 <input type="submit" class="button" value="Add Card">
             </form>
         </section>
+    </main>
 
-        <!-- <section>
+    <script src="js/main.js"></script>
+    <script src="./timer.js "></script>
+
+</body>
+
+</html>
+
+<!-- Removed Code Blocks -->
+<!-- <div>
+        <button class="previous button">Previous</button>
+        <button class="next button">Next</button>
+    </div> -->
+
+<!-- <section>
             <hr>
             <h2>Trying to Display One Random Card</h2>
             <% const randomCard = todos[Math.floor(Math.random()*todos.length)] %>
@@ -122,14 +115,19 @@
                 <span class='del hoverState'> Delete </span>
             </div>
         </section> -->
+<!-- <div id="random" class="card hidden">
+        <% let randoCard=todos[Math.floor(Math.random()*todos.length)] %>
 
-
-
-    </main>
-
-    <script src="js/main.js"></script>
-    <script src="./timer.js "></script>
-
-</body>
-
-</html>
+            <div class='cardData' data-id='<%=randoCard._id%>'>
+                <p id="randomCardFront" data-id='<%=randoCard._id%>' class='cardInfo
+                    cardFront'>
+                    <%=randoCard.cardFront %>
+                </p>
+                <p id="rnadomCardBack" data-id='<%=randoCard._id%>'
+                    class="<%= randoCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
+                    <%= randoCard.cardBack %>
+                </p>
+                <a data-id='<%=randoCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                <span class='del hoverState'> Delete </span>
+            </div>
+    </div> -->

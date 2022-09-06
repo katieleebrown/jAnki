@@ -152,10 +152,17 @@ document.querySelectorAll('.displayButton').forEach(element => {
 })
 
 function showOther(click) {
-
     let info = event.currentTarget.getAttribute('data-id')
     console.log(`click at data-id: ${info}`)
     document.querySelectorAll(`p[data-id='${info}']`).forEach(x => {
         x.classList.toggle('hidden')
     })
+
+    // Toggles Button to show front/back
+    let buttonSelect = document.querySelector(`a[data-id='${info}']`)
+    if (buttonSelect.innerText.includes('Back')) {
+        buttonSelect.innerText = 'Show Front'
+    } else {
+        buttonSelect.innerText = 'Show Back'
+    }
 }
