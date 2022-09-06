@@ -27,7 +27,7 @@
 
         <section class="timer">
             <div class="container">
-                <h1 id="clock">00:30</h1>
+                <h1 id="clock">10:00</h1>
             </div>
         </section>
 
@@ -62,9 +62,12 @@
 
             </div>
 
-            <h2>
-                You have <%= left %> cards to review!
-            </h2>
+
+            <% if (left==0) { %>
+                <h2>You have no cards to review! Come back tomorrow or add more cards to your deck.</h2>
+                <% } else { %>
+                    <h2>You have <%= left %> cards to review!</h2>
+                    <% } %>
         </section>
 
         <section id="addACard">
@@ -96,38 +99,4 @@
 <!-- <div>
         <button class="previous button">Previous</button>
         <button class="next button">Next</button>
-    </div> -->
-
-<!-- <section>
-            <hr>
-            <h2>Trying to Display One Random Card</h2>
-            <% const randomCard = todos[Math.floor(Math.random()*todos.length)] %>
-            <div class='cardData' data-id='<%=randomCard._id%>'>
-                <p data-id='<%=randomCard._id%>' class='<%= randomCard.completed === true ? ' completed' : 'not' %> cardInfo
-                    cardFront'>
-                    <%=randomCard.cardFront %>
-                </p>
-                <p data-id='<%=randomCard._id%>'
-                    class="<%= randomCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
-                    <%= randomCard.cardBack %>
-                </p>
-                <a data-id='<%=randomCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
-                <span class='del hoverState'> Delete </span>
-            </div>
-        </section> -->
-<!-- <div id="random" class="card hidden">
-        <% let randoCard=todos[Math.floor(Math.random()*todos.length)] %>
-
-            <div class='cardData' data-id='<%=randoCard._id%>'>
-                <p id="randomCardFront" data-id='<%=randoCard._id%>' class='cardInfo
-                    cardFront'>
-                    <%=randoCard.cardFront %>
-                </p>
-                <p id="rnadomCardBack" data-id='<%=randoCard._id%>'
-                    class="<%= randoCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
-                    <%= randoCard.cardBack %>
-                </p>
-                <a data-id='<%=randoCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
-                <span class='del hoverState'> Delete </span>
-            </div>
     </div> -->
