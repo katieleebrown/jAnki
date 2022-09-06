@@ -26,7 +26,7 @@
     <main>
 
         <section class="timer">
-            <div class ="container">
+            <div class="container">
                 <h1>00:00</h1>
             </div>
         </section>
@@ -39,14 +39,14 @@
 
             <div>
                 <button id="all" class="all button">Show All Cards</button>
-                <button id="showRandom" class="showRandom button">Random</button>
+                <button id="showRandom" class="showRandom button">Random Card</button>
             </div>
 
             <div id="card" class="card">
-
                 <% todos.forEach( el=> { %>
-                    <div class='cardData' data-id='<%=el._id%>'>
-                        <p data-id='<%=el._id%>' class='<%= el.completed === true ? ' completed' : 'not' %> cardInfo
+                    <div id="card-<%=el._id%>" class='cardData' data-id='<%=el._id%>'>
+                        <p data-id='<%=el._id%>' class='<%= el.completed === true ? ' completed' : 'not' %>
+                            cardInfo
                             cardFront'>
                             <%=el.cardFront %>
                         </p>
@@ -57,47 +57,31 @@
                         <a data-id='<%=el._id%>' id="showCardBack" class="button displayButton">Show Back</a>
                         <span class='del hoverState'> Delete </span>
                     </div>
-                <% }) %>
+                    <% }) %>
 
             </div>
 
-            <div id="random" class="card hidden">
+            <!-- <div id="random" class="card hidden">
+                <% let randoCard=todos[Math.floor(Math.random()*todos.length)] %>
 
-                <% var randoCard = todos[Math.floor(Math.random()*todos.length)] %>
-
-                <div class='cardData' data-id='<%=randoCard._id%>'>
-                    <p data-id='<%=randoCard._id%>' class='<%= randoCard.completed === true ? ' completed' : 'not' %> cardInfo
-                        cardFront'>
-                        <%=randoCard.cardFront %>
-                    </p>
-                    <p data-id='<%=randoCard._id%>'
-                        class="<%= randoCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
-                        <%= randoCard.cardBack %>
-                    </p>
-                    <a data-id='<%=randoCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
-                    <span class='del hoverState'> Delete </span>
-                </div>
-
-                <!-- <% todos.forEach( el=> { %>
-                    <div class='cardData' data-id='<%=el._id%>'>
-                        <p data-id='<%=el._id%>' class='cardInfo cardFront'>
-                            <%=el.cardFront %>
+                    <div class='cardData' data-id='<%=randoCard._id%>'>
+                        <p id="randomCardFront" data-id='<%=randoCard._id%>' class='cardInfo
+                            cardFront'>
+                            <%=randoCard.cardFront %>
                         </p>
-                        <p data-id='<%=el._id%>'
-                            class="cardInfo cardBack hidden">
-                            <%= el.cardBack %>
+                        <p id="rnadomCardBack" data-id='<%=randoCard._id%>'
+                            class="<%= randoCard.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
+                            <%= randoCard.cardBack %>
                         </p>
-                        <a data-id='<%=el._id%>' id="showCardBack" class="button displayButton">Show Back</a>
+                        <a data-id='<%=randoCard._id%>' id="showCardBack" class="button displayButton">Show Back</a>
                         <span class='del hoverState'> Delete </span>
                     </div>
-                <% }) %> -->
+            </div> -->
 
-            </div>
-
-            <div>
+            <!-- <div>
                 <button class="previous button">Previous</button>
                 <button class="next button">Next</button>
-            </div>
+            </div> -->
 
             <h2>
                 You have <%= left %> cards to review!
@@ -105,7 +89,7 @@
         </section>
 
         <section id="addACard">
-            <h3>Create a card to add to your jAnki deck!</h3>
+            <h3>Create a card for your jAnki deck!</h3>
 
             <form action="/todos/createTodo" method='POST'>
                 <div class="formGroup">
@@ -144,7 +128,7 @@
     </main>
 
     <script src="js/main.js"></script>
-    <script src ="./timer.js "></script>
+    <script src="./timer.js "></script>
 
 </body>
 

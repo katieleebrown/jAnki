@@ -14,18 +14,26 @@ function hideBack() {
     back.classList.toggle('hidden')
 }
 
-function showRandom(){
+function showRandom() {
+    let dataIds = []
 
-    card.classList.add('hidden')
-	random.classList.toggle('hidden')
-    
+    document.querySelectorAll('.cardData').forEach(cardBlock => {
+        dataIds.push(cardBlock.getAttribute('id'))
+    })
+    console.log(`You have ${dataIds.length} card(s)`)
+
+    document.querySelectorAll('.cardData').forEach(cardBlock => {
+        cardBlock.classList.add('hidden')
+    })
+    let random = Math.floor(Math.random() * dataIds.length)
+    document.getElementById(`${dataIds[random]}`).classList.remove('hidden')
 }
 
-function showAll(){
+function showAll() {
 
     random.classList.add('hidden')
-	card.classList.toggle('hidden')
-    
+    card.classList.toggle('hidden')
+
 }
 
 Array.from(deleteBtn).forEach((el) => {
@@ -82,38 +90,40 @@ async function markComplete() {
     }
 }
 
+
+
 //get random jAnki card
-function getRandom() {
-    var axios = require('axios');
-    let randomizer = Math.random() * 100;
-    var data = JSON.stringify({
-        "collection": "todos",
-        "database": "test",
-        "dataSource": "jAnki",
-        "projection": {
-            "_id": 1
-        }
-    });
+// function getRandom() {
+//     var axios = require('axios');
+//     let randomizer = Math.random() * 100;
+//     var data = JSON.stringify({
+//         "collection": "todos",
+//         "database": "test",
+//         "dataSource": "jAnki",
+//         "projection": {
+//             "_id": 1
+//         }
+//     });
 
-    var config = {
-        method: 'post',
-        url: 'https://data.mongodb-api.com/app/data-lsojj/endpoint/data/v1/action/findOne',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Request-Headers': '*',
-          'api-key': 'PBQiyDEoHoIodeg0je17txAeISf65U5QKGOYNGEceTZ4yuP1ClNM9fxM8pdsHFKx',
-        },
-        data: data
-    };
+//     var config = {
+//         method: 'post',
+//         url: 'https://data.mongodb-api.com/app/data-lsojj/endpoint/data/v1/action/findOne',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'Access-Control-Request-Headers': '*',
+//           'api-key': 'PBQiyDEoHoIodeg0je17txAeISf65U5QKGOYNGEceTZ4yuP1ClNM9fxM8pdsHFKx',
+//         },
+//         data: data
+//     };
 
-    axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
+//     axios(config)
+//         .then(function (response) {
+//             console.log(JSON.stringify(response.data));
+//         })
+//         .catch(function (error) {
+//             console.log(error);
+//         });
+// }
 
 //add a marked off jAnki card back to the deck if you didn't quite get it memorized
 async function markIncomplete() {
