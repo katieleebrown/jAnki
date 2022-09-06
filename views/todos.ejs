@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Harmattan:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="timer();">
     <nav>
         <img src="images/jAnki-Logo.png" alt="jAnki">
         <div class="buttonHolder">
@@ -27,7 +27,7 @@
 
         <section class="timer">
             <div class="container">
-                <h1>00:00</h1>
+                <h1 id="clock">00:30</h1>
             </div>
         </section>
 
@@ -86,7 +86,7 @@
     </main>
 
     <script src="js/main.js"></script>
-    <script src="./timer.js "></script>
+    <script src="js/timer.js "></script>
 
 </body>
 
