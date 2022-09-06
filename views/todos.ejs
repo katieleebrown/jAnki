@@ -44,19 +44,24 @@
 
             <div id="card" class="card">
                 <% todos.forEach( el=> { %>
-                    <div id="card-<%=el._id%>" class='cardData' data-id='<%=el._id%>'>
-                        <p data-id='<%=el._id%>' class='<%= el.completed === true ? ' completed' : 'not' %>
-                            cardInfo
-                            cardFront'>
-                            <%=el.cardFront %>
-                        </p>
-                        <p data-id='<%=el._id%>'
-                            class="<%= el.completed === true ? 'completed' : 'not' %> cardInfo cardBack hidden">
-                            <%= el.cardBack %>
-                        </p>
-                        <a data-id='<%=el._id%>' id="showCardBack-<%=el._id%>" class="button displayButton">Show
-                            Back</a>
-                        <span class='del hoverState'> Delete </span>
+                    <div id="card-<%=el._id%>" class='<%= el.dateCompleted===todaysDate ? ' hidden' : 'not' %> cardData'
+                        data-id='<%=el._id%>'>
+                            <p data-id='<%=el._id%>' class='
+                                cardInfo
+                                cardFront'>
+                                <%=el.cardFront %>
+                            </p>
+                            <p data-id='<%=el._id%>' class="cardInfo cardBack hidden">
+                                <%= el.cardBack %>
+                            </p>
+                            <a data-id='<%=el._id%>' id="showCardBack-<%=el._id%>" class="button displayButton">Show
+                                Back</a>
+                            <span class='del hoverState'> Delete </span>
+                            <% if (el.dateCompleted===todaysDate) { %>
+                                <span class='completed hoverState'> Mark incomplete </span>
+                                <% } else { %>
+                                    <span class='not hoverState'> Mark Complete </span>
+                                    <% } %>
                     </div>
                     <% }) %>
 
@@ -65,9 +70,11 @@
 
             <% if (left==0) { %>
                 <h2>You have no cards to review! Come back tomorrow or add more cards to your deck.</h2>
-                <% } else { %>
-                    <h2>You have <%= left %> cards to review!</h2>
-                    <% } %>
+                <% } else if (left==1) { %>
+                    <h2>You have <%= left %> card to review!</h2>
+                    <% } else { %>
+                        <h2>You have <%= left %> cards to review!</h2>
+                        <% } %>
         </section>
 
         <section id="addACard">
