@@ -1,7 +1,7 @@
 # jAnki
 A less effective Anki App built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize their jAnki app! If you are tired of the perfect algorithm that Anki provides, please check out jAnki!
 
-**Link to project:** COMING SOON
+**Link to project:** (https://janki-web-app.herokuapp.com/)
 
 ![alt tag](/public/images/all-cards.png)
 
