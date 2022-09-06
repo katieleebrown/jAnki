@@ -16,25 +16,42 @@
 </head>
 
 <body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el=> { %>
-            <div class="alert alert-danger">
-                <%= el.msg %>
-            </div>
+    <nav>
+        <img src="images/jAnki-Logo.png" alt="jAnki">
+        <div class="buttonHolder">
+            <a href="/login" class="button">Login</a>
+            <a href="/signup" class="button">Signup</a>
+        </div>
+    </nav>
+
+    <main>
+        <h2>Welcome to jAnki!</h2>
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el=> { %>
+                <div class="alert alert-danger">
+                    <%= el.msg %>
+                </div>
             <% }) %>
-                <% } %>
-                    <% if (locals.messages.info) { %>
-                        <% messages.info.forEach( el=> { %>
-                            <div class="alert alert-danger">
-                                <%= el.msg %>
-                            </div>
-                            <% }) %>
-                                <% } %>
-                                    <form action="/login" method="POST">
-                                        <input type="email" name="email" placeholder="Email">
-                                        <input type="password" name="password" placeholder="Password">
-                                        <input type="submit" class="button">
-                                    </form>
+        <% } %>
+        <% if (locals.messages.info) { %>
+            <% messages.info.forEach( el=> { %>
+                <div class="alert alert-danger">
+                     <%= el.msg %>
+                </div>
+            <% }) %>
+        <% } %>
+        <form action="/login" method="POST">
+            <div class="formGroup">
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="Email">
+            </div>
+            <div class="formGroup">
+                <label for="password">Password:</label>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <input type="submit" class="button">
+        </form>
+    </main>
 </body>
 
 </html>
